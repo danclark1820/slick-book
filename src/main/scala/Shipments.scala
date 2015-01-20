@@ -9,4 +9,3 @@ class Shipments(tag: Tag) extends Table[Shipment](tag, "shipments") {
   def * = (snum, pnum, qty) <> (Shipment.tupled, Shipment.unapply _)
   def supplier = foreignKey("SUP_FK", snum, suppliers)(_.snum)
 }
-val shipments = TableQuery[Shipments]
